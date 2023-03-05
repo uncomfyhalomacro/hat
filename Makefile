@@ -7,12 +7,15 @@ OBJ = hat.ha
 HARE ?= hare
 
 hat: $(OBJ)
-	$(HARE) build -o $(PROG) $(OBJ)
+	$(HARE) build -v -o $(PROG) $(OBJ)
 
 install:
-	$(INSTALL) -Dm0755 $(PROG) $(DESTDIR)$(BINDIR)/$(PROG)
+	$(INSTALL) -v -Dm0755 $(PROG) $(DESTDIR)$(BINDIR)/$(PROG)
 
 uninstall:
 	$(RM) $(DESTDIR)$(BINDIR)/$(PROG)
+
 clean:
 	$(RM) $(PROG)
+	
+.PHONY: clean install
